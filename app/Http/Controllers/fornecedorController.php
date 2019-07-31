@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Fornecedor;
 use Illuminate\Http\Request;
 
 class fornecedorController extends Controller
@@ -13,7 +14,8 @@ class fornecedorController extends Controller
      */
     public function index()
     {
-        return view('fornecedor.lista');
+        $fornecedores = Fornecedor::all();
+        return view('fornecedor.lista', compact('fornecedores'));
     }
 
     public function edita()
@@ -38,7 +40,17 @@ class fornecedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nome'=>'required',
+            'nome_fantasia'=>'required',
+            'cnpj'=>'required | unique:fornecedores'
+        ]);
+        $fornecedor = new Fornecedor();
+        $fornecedor->nome = $request->nome;
+        $fornecedor->nome_fantasia = $request->nome_fantasia;
+        $fornecedor->cnpj = $request->cnpj;
+        $fornecedor->save();
+        return redirect()->route('listaFornecedor')->with('Alerta', 'Fornecedor cadastrado com sucesso.');
     }
 
     /**

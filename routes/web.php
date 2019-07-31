@@ -25,4 +25,5 @@ Route::prefix('fornecedor')->group(function (){
    Route::get('/lista', 'fornecedorController@index')->name('listaFornecedor');
    Route::get('/cadastra', 'fornecedorController@create')->name('cadastraFornecedor');
    Route::get('/edita', 'fornecedorController@edita')->name('editaFornecedor');
+   Route::post('/gravar', 'fornecedorController@store')->name('gravarFornecedor');
 });
