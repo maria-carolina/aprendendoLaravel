@@ -28,7 +28,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('listaRoupas')}}">Listar</a>
                             <a class="dropdown-item" href="{{route('cadastraRoupas')}}">Cadastrar</a>
-                            <a class="dropdown-item" href="{{route('editaRoupas')}}">Editar</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown {{request()->is('fornecedor/*')? 'active' : ''}}">
@@ -38,7 +37,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('listaFornecedor')}}">Listar</a>
                             <a class="dropdown-item" href="{{route('cadastraFornecedor')}}">Cadastrar</a>
-                            <a class="dropdown-item" href="{{route('editaFornecedor')}}">Editar</a>
                         </div>
                     </li>
                 </ul>

@@ -20,7 +20,7 @@
                         <td>{{$fornecedor->nome}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary">Editar</button>
+                                <a href="{{route('editaFornecedor', ['id'=>$fornecedor->id])}}" class="btn btn-primary">Editar</a>
                                 <button type="button" class="btn btn-danger">Excluir</button>
                             </div>
                         </td>
