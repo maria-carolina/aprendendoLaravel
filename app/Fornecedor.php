@@ -13,6 +13,7 @@ class Fornecedor extends Model
     protected $fillable = [
         'nome',
         'nome_fantasia',
-        'cnpj'
+        'cnpj',
+        'publicado'
     ];
 }

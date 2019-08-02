@@ -12,22 +12,23 @@
                     </ul>
                 </div>
             @endif
-            <form method="post" action="{{route('gravarFornecedor')}}">
+            <form method="post" action="{{isset($fornecedor) ? route('salvarFornecedor', ['id'=>$fornecedor->id]) : route('gravarFornecedor')}}">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nome</label>
-                    <input type="text" class="form-control" name="nome" value="{{old('nome')}}" placeholder="Nome Completo">
+                    <input type="text" class="form-control" name="nome" value="{{isset($fornecedor) ? "$fornecedor->nome" : ""}}" placeholder="Nome Completo">
                 </div>
                 <div class="form-group">
                     <label>Nome Fantasia</label>
-                    <input type="text" class="form-control" name="nome_fantasia" value="{{old('nome_fantasia')}}" placeholder="Nome fantasia da empresa">
+                    <input type="text" class="form-control" name="nome_fantasia" value="{{isset($fornecedor) ? "$fornecedor->nome_fantasia" : ""}}" placeholder="Nome fantasia da empresa">
                 </div>
                 <div class="form-group">
                     <label>CPNJ</label>
-                    <input type="text" class="form-control" name="cnpj" value="{{old('cnpj')}}" placeholder="CNPJ">
+                    <input type="text" class="form-control" name="cnpj" value="{{isset($fornecedor) ? "$fornecedor->cnpj" : ""}}" placeholder="CNPJ">
                 </div>
                 <a href="#" class="btn btn-outline-dark">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
+
             </form>
         </div>
     </div>

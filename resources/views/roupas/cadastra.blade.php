@@ -17,7 +17,7 @@
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nome</label>
-                    <input type="text" class="form-control" name="nome" placeholder="Nome da roupa">
+                    <input type="text" class="form-control" name="nome" value="" placeholder="Nome da roupa">
                 </div>
                 <div class="form-group">
                     <label>Categoria</label>

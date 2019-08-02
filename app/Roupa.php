@@ -13,6 +13,7 @@ class Roupa extends Model
         'quantidade',
         'categoria_id',
         'tamanho_id',
-        'fornecedor_id'
+        'fornecedor_id',
+        'publicado'
     ];
 }

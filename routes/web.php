@@ -18,8 +18,9 @@ Route::get('/', function () {
 Route::prefix('roupas')->group(function (){
    Route::get('/lista', 'roupasController@index')->name('listaRoupas');
    Route::get('/cadastra', 'roupasController@create')->name('cadastraRoupas');
-   Route::get('/edita', 'roupasController@edita')->name('editaRoupas');
+   Route::get('/edita{id}', 'roupasController@edit')->name('editaRoupas');
    Route::post('/gravar', 'roupasController@store')->name('gravarRoupas');
+   Route::get('/visualizar/{id}', 'roupasController@show')->name('visualizaRoupas');
 });
 
 Route::prefix('fornecedor')->group(function (){
@@ -27,6 +28,8 @@ Route::prefix('fornecedor')->group(function (){
    Route::get('/cadastra', 'fornecedorController@create')->name('cadastraFornecedor');
    Route::get('/edita/{id}', 'fornecedorController@edit')->name('editaFornecedor');
    Route::post('/gravar', 'fornecedorController@store')->name('gravarFornecedor');
+   Route::post('/salvar/{id}', 'fornecedorController@update')->name('salvarFornecedor');
+   Route::get('excluir/{id}', 'fornecedorController@destroy')->name('excluirFornecedor');
 });
 
 Route::prefix('categorias')->group(function () {

@@ -14,14 +14,10 @@ class fornecedorController extends Controller
      */
     public function index()
     {
-        $fornecedores = Fornecedor::all();
+        $fornecedores = Fornecedor::where('publicado', '1')->get();
         return view('fornecedor.lista', compact('fornecedores'));
     }
 
-    public function edita()
-    {
-        return view('fornecedor.edita');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -49,6 +45,7 @@ class fornecedorController extends Controller
         $fornecedor->nome = $request->nome;
         $fornecedor->nome_fantasia = $request->nome_fantasia;
         $fornecedor->cnpj = $request->cnpj;
+        $fornecedor->publicado = 1;
         $fornecedor->save();
         return redirect()->route('listaFornecedor')->with('Alerta', 'Fornecedor cadastrado com sucesso.');
     }
@@ -72,7 +69,8 @@ class fornecedorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $fornecedor = Fornecedor::find($id);
+       return view('fornecedor.cadastra', compact( 'fornecedor'));
     }
 
     /**
@@ -84,7 +82,13 @@ class fornecedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fornecedores = Fornecedor::find($id);
+        $fornecedores->nome = $request->nome;
+        $fornecedores->nome_fantasia = $request->nome_fantasia;
+        $fornecedores->cnpj = $request->cnpj;
+        $fornecedores->save();
+
+        return redirect()->route('listaFornecedor')->with('Alerta', 'Fornecedor alterado com sucesso.');
     }
 
     /**
@@ -95,6 +99,9 @@ class fornecedorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fornecedor = Fornecedor::find($id);
+        $fornecedor->publicado = 0;
+        $fornecedor->save();
+        return redirect()->route('listaFornecedor')->with('Alerta', 'Fornecedor excluido com suucesso');
     }
 }

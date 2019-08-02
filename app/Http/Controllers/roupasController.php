@@ -17,7 +17,29 @@ class roupasController extends Controller
      */
     public function index()
     {
-        return view('roupas.lista');
+        $roupas = Roupa::all();
+        return view('roupas.lista', compact('roupas'));
+
+
+
+        /*@if(count($roupas)>0)
+    <div class="row">
+        <div class="col-md-3">
+    @foreach($roupas as $roupa)
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{$roupa->nome}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{$roupa->categoria}}</h6>
+                    <a href="#" class="card-link">Remover</a>
+                    <a href="#" class="card-link">Visualizar</a>
+                </div>
+            </div>
+    @endforeach
+        </div>
+    </div>
+    @else
+    <div class="alert alert-success" role="alert">Não há roupas cadastradas</div>
+    @endif*/
     }
 
 
@@ -73,7 +95,7 @@ class roupasController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('roupas.visualiza');
     }
 
     /**
