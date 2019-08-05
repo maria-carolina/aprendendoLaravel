@@ -11,4 +11,8 @@ class Categoria extends Model
     protected $fillable = [
         'nome'
     ];
+
+    function roupa() {
+        return $this->hasMany('App\Roupa');
+    }
 }

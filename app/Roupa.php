@@ -16,4 +16,8 @@ class Roupa extends Model
         'fornecedor_id',
         'publicado'
     ];
+
+    function categoria() {
+        return $this->belongsTo('App\Categoria');
+    }
 }

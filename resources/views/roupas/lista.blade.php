@@ -15,7 +15,7 @@
                 <div class="card text-center" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{$roupa->nome}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">'Categoria'</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$roupa->categoria->nome}}</h6>
                         <img src="http://imagensemoldes.com.br/wp-content/uploads/2018/03/Mockup-Camiseta-Rosa-Edit%C3%A1vel-300x294.png" width="100" align="center">
                         <br/>
                         <a href="#" class="card-link">Remover</a>
