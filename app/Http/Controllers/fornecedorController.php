@@ -41,7 +41,13 @@ class fornecedorController extends Controller
             'nome_fantasia'=>'required',
             'cnpj'=>'required | unique:fornecedores'
         ]);
-        $fornecedor = new Fornecedor();
+        Fornecedor::create([
+            'nome' => $request->nome,
+            'nome_fantasia' => $request->nome_fantasia,
+            'cnpj' => $request->cnpj,
+            'publicado' => 1
+
+        ]);
         $fornecedor->nome = $request->nome;
         $fornecedor->nome_fantasia = $request->nome_fantasia;
         $fornecedor->cnpj = $request->cnpj;
